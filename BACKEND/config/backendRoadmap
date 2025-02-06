@@ -1,0 +1,13 @@
+backend/
+│── config/
+│   └── config.env
+│── controllers/
+│   └── userControllers.js
+│── database/
+│   └── connection.js
+│── middlewares/
+│   └── error.js
+│── models/
+│   └── userSchema.js
+│── app.js
+│── server.js
