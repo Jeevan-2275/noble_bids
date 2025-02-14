@@ -17,6 +17,10 @@ const auctionSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    url: {
+      type: String,
+      required: true,
+    },  
 },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
@@ -52,9 +56,3 @@ export const Auction = mongoose.model("Auction", auctionSchema);
 
 
 
-//20 line
-// url: {
-//     type: String,
-//     required: true,
-//   },
-// 
