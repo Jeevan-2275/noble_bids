@@ -37,7 +37,7 @@ import {
     isAuthorized("Auctioneer"),
     removeFromAuction
   );
-  
+    
   router.put(
     "/item/republish/:id",
     isAuthenticated,
