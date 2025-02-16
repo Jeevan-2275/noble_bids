@@ -1,6 +1,6 @@
 import { Auction } from "../models/auctionSchema.js";
 import { User } from "../models/userSchema.js";
-// import { Bid } from "../models/bidSchema.js";
+import { Bid } from "../models/bidSchema.js";
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import ErrorHandler from "../middlewares/error.js";
 import { v2 as cloudinary } from "cloudinary";
@@ -169,11 +169,11 @@ export const republishItem = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  if (new Date(auctionItem.endTime) > Date.now()) {
-    return next(
-      new ErrorHandler("Auction is already active, cannot republish", 400)
-    );
-  }
+  // if (new Date(auctionItem.endTime) > Date.now()) {
+  //   return next(
+  //     new ErrorHandler("Auction is already active, cannot republish", 400)
+  //   );
+  // }
   
   let data = {
     startTime: new Date(req.body.startTime),
