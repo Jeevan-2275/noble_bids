@@ -58,7 +58,7 @@ export const placeBid = catchAsyncErrors(async (req, res, next) => {
       });
       auctionItem.currentBid = amount;
     }
-    await auctionItem.save();
+    await auctionItem.save(); 
 
     res.status(201).json({
       success: true,
