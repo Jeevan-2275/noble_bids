@@ -153,7 +153,6 @@ export const removeFromAuction = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const republishItem = catchAsyncErrors(async (req, res, next) => {
-  // console.log("Request Body:", req.body);
   
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -169,11 +168,11 @@ export const republishItem = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  // if (new Date(auctionItem.endTime) > Date.now()) {
-  //   return next(
-  //     new ErrorHandler("Auction is already active, cannot republish", 400)
-  //   );
-  // }
+  if (new Date(auctionItem.endTime) > Date.now()) {
+    return next(
+      new ErrorHandler("Auction is already active, cannot republish", 400)
+    );
+  }
   
   let data = {
     startTime: new Date(req.body.startTime),

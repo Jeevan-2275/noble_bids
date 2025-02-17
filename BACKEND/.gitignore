@@ -1,3 +1,8 @@
 # Ignore environment variables
 config/config.env  
 .env  
+
+
+
+logs/
+*.log
