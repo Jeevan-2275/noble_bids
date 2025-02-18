@@ -4,11 +4,10 @@ const Home = () => {
   return (
 <>
 
-
 </>
 
 
 )
 }
 
-export default Home
+export default Home;
