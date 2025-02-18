@@ -1,18 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SideDrawer from "./layout/SideDrawer";
+import Home from "./pages/Home";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const App = () => {
+  
   return (
-    <>
-      <h1 className="text-3xl bg-red-500 font-bold underline">
-      Hello world!
-    </h1>
-    </>
-  )
-}
+    <Router>
+      <SideDrawer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <ToastContainer position="top-right" />
 
-export default App
+    </Router>
+  );
+};
+
+export default App;
