@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
+import commissionReducer from "./slices/commissionSlice";
 
 
 export const store = configureStore({
   reducer: {
-    user: userReducer
+    user: userReducer,
+    commission:commissionReducer
 
   },
 });
