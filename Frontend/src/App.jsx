@@ -12,6 +12,8 @@ import { useDispatch } from "react-redux";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import { getAllAuctionItems } from "./store/slices/auctionSlice";
+// import Leaderboard from "./pages/Leaderboard";
+import { fetchLeaderboard } from "./store/slices/userSlice";
 
 
 
@@ -20,7 +22,7 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchUser());
     dispatch(getAllAuctionItems());
-    // dispatch(fetchLeaderboard());
+    dispatch(fetchLeaderboard());
   }, []);
   
   return (
@@ -33,6 +35,8 @@ const App = () => {
         <Route path="/submit-commission" element={<SubmitCommission />} />
         <Route path="/how-it-works-info" element={<HowItWorks />} />
         <Route path="/about" element={<About />} />
+        {/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
+
 
       </Routes>
       <ToastContainer position="top-right" />
