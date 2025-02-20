@@ -12,9 +12,9 @@ import { useDispatch } from "react-redux";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import { getAllAuctionItems } from "./store/slices/auctionSlice";
-// import Leaderboard from "./pages/Leaderboard";
+import Leaderboard from "./pages/Leaderboard";
 import { fetchLeaderboard } from "./store/slices/userSlice";
-
+import Auctions from "./pages/Auctions";
 
 
 const App = () => {
@@ -35,7 +35,8 @@ const App = () => {
         <Route path="/submit-commission" element={<SubmitCommission />} />
         <Route path="/how-it-works-info" element={<HowItWorks />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/auctions" element={<Auctions />} />
 
 
       </Routes>
