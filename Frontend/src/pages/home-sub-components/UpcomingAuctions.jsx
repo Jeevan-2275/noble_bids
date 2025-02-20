@@ -14,7 +14,7 @@ const UpcomingAuctions = () => {
     return auctionDate.toDateString() === todayString;
   });
 
-  return (
+  return ( 
     <>
       <section className="my-8">
         <h3 className="text-[#111] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl">
