@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -25,7 +25,7 @@ const SignUp = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("userName", userName);
+    formData.append("username", username);
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("password", password);
@@ -78,7 +78,7 @@ const SignUp = () => {
                 <label className="text-[16px] text-stone-600">Full Name</label>
                 <input
                   type="text"
-                  value={userName}
+                  value={username}
                   onChange={(e) => setUserName(e.target.value)}
                   className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none"
                 />
@@ -190,7 +190,7 @@ const SignUp = () => {
                   <input
                     type="text"
                     value={bankAccountName}
-                    placeholder="Bank Account UserName"
+                    placeholder="Bank Account username"
                     onChange={(e) => setBankAccountName(e.target.value)}
                     className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
                     disabled={role === "Bidder"}
