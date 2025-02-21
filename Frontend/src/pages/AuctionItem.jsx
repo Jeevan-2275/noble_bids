@@ -129,11 +129,11 @@ const  AuctionItem = () => {
                           <div className="flex items-center gap-4">
                             <img
                               src={element.profileImage}
-                              alt={element.userName}
+                              alt={element.username}
                               className="w-12 h-12 rounded-full my-2 hidden md:block"
                             />
                             <p className="text-[18px] font-semibold">
-                              {element.userName}
+                              {element.username}
                             </p>
                           </div>
                           {index === 0 ? (
