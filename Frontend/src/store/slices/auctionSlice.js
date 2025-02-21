@@ -45,18 +45,18 @@ const auctionSlice = createSlice({
       state.auctionDetail = state.auctionDetail;
       state.auctionBidders = state.auctionBidders;
     },
-    // getMyAuctionsRequest(state, action) {
-    //   state.loading = true;
-    //   state.myAuctions = [];
-    // },
-    // getMyAuctionsSuccess(state, action) {
-    //   state.loading = false;
-    //   state.myAuctions = action.payload;
-    // },
-    // getMyAuctionsFailed(state, action) {
-    //   state.loading = false;
-    //   state.myAuctions = [];
-    // },
+    getMyAuctionsRequest(state, action) {
+      state.loading = true;
+      state.myAuctions = [];
+    },
+    getMyAuctionsSuccess(state, action) {
+      state.loading = false;
+      state.myAuctions = action.payload;
+    },
+    getMyAuctionsFailed(state, action) {
+      state.loading = false;
+      state.myAuctions = [];
+    },
     // deleteAuctionItemRequest(state, action) {
     //   state.loading = true;
     // },
@@ -104,22 +104,7 @@ export const getAllAuctionItems = () => async (dispatch) => {
   }
 };
 
-// export const getMyAuctionItems = () => async (dispatch) => {
-//   dispatch(auctionSlice.actions.getMyAuctionsRequest());
-//   try {
-//     const response = await axios.get(
-//       "http://localhost:5000/api/v1/auctionitem/myitems",
-//       { withCredentials: true }
-//     );
-//     dispatch(auctionSlice.actions.getMyAuctionsSuccess(response.data.items));
-//     dispatch(auctionSlice.actions.resetSlice());
-//   } catch (error) {
-//     dispatch(auctionSlice.actions.getMyAuctionsFailed());
-//     console.error(error);
-//     dispatch(auctionSlice.actions.resetSlice());
-//   }
-// };
-
+                              
 export const getAuctionDetail = (id) => async (dispatch) => {
   dispatch(auctionSlice.actions.getAuctionDetailRequest());
   try {
