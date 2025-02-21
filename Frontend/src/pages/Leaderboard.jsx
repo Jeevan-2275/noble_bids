@@ -23,7 +23,7 @@ const Leaderboard = () => {
                 <thead>
                   <tr>
                     <th className="py-2 px-4 text-left">Profile Pic</th>
-                    <th className="py-2 px-4 text-left">Username</th>
+                    <th className="py-2 px-4 text-left">username</th>
                     <th className="py-2 px-4 text-left">Bid Expenditure</th>
                     <th className="py-2 px-4 text-left">Auctions Won</th>
                   </tr>
@@ -47,7 +47,7 @@ const Leaderboard = () => {
                             />
                           </span>
                         </td>
-                        <td className="py-2 px-4">{element.userName}</td>
+                        <td className="py-2 px-4">{element.username}</td>
                         <td className="py-2 px-4">{element.moneySpent}</td>
                         <td className="py-2 px-4">{element.auctionsWon}</td>
                       </tr>

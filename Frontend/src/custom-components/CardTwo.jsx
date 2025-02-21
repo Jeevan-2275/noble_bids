@@ -127,7 +127,7 @@ const Drawer = ({ setOpenDrawer, openDrawer, id }) => {
 
   return (
     <section
-      className={`fixed ${
+      className={`fixed ${                                       
         openDrawer && id ? "bottom-0" : "-bottom-full"
       }  left-0 w-full transition-all duration-300 h-full bg-[#00000087] flex items-end`}
     >
@@ -193,3 +193,4 @@ const Drawer = ({ setOpenDrawer, openDrawer, id }) => {
     </section>
   );
 };
+                                         
