@@ -8,7 +8,7 @@ const bidSchema = new mongoose.Schema({
       ref: "User",
       required: true,
     },
-    userName: String,
+    username: String,
     profileImage: String,
   },
   auctionItem: {

@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
+        minLength: [3, "Username must caontain at least 3 characters."],
         maxLength: [20, "Username must be at most 20 characters"],
         required: [true, "Username is required"],
     },

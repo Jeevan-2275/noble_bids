@@ -45,14 +45,14 @@ export const placeBid = catchAsyncErrors(async (req, res, next) => {
         amount,
         bidder: {
           id: bidderDetail._id,
-          userName: bidderDetail.userName,
+          username: bidderDetail.username,
           profileImage: bidderDetail.profileImage?.url,
         },
         auctionItem: auctionItem._id,
       });
       auctionItem.bids.push({
         userId: req.user._id,
-        userName: bidderDetail.userName,
+        username: bidderDetail.username,
         profileImage: bidderDetail.profileImage?.url,
         amount,
       });
