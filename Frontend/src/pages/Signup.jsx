@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [username, setUserName] = useState("");
+  const [username, setusername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -79,7 +79,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   value={username}
-                  onChange={(e) => setUserName(e.target.value)}
+                  onChange={(e) => setusername(e.target.value)}
                   className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none"
                 />
               </div>
