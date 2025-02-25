@@ -50,10 +50,10 @@ const App = () => {
         <Route path="/auction/item/:id" element={<AuctionItem />} />
         <Route path="/create-auction" element={<CreateAuction />} />
         <Route path="/view-my-auctions" element={<ViewMyAuctions />} />
-        <Route path="/auction/details/:id" element={<ViewAuctionDetails />} />
+        <Route path="/auction/details/:id" element={<ViewAuctionDetails />} />                                                                                                           
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path ="/me"  element={<UserProfile />}
+        <Route path ="/me"  element={<UserProfile />} />
 
       </Routes>
       <ToastContainer position="top-right" />
