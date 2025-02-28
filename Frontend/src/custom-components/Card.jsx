@@ -82,3 +82,92 @@ const Card = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
 };
 
 export default Card;
+
+
+
+// import { motion } from "framer-motion";
+// import { FiClock, FiUsers } from "react-icons/fi";
+// import { MdCurrencyRupee } from "react-icons/md";
+// import { format } from "date-fns";
+
+// const Card = ({ 
+//   title, 
+//   startTime, 
+//   endTime, 
+//   imgSrc, 
+//   startingBid, 
+//   currentBid, 
+//   bidsCount,
+//   id 
+// }) => {
+//   const getTimeLeft = () => {
+//     const end = new Date(endTime);
+//     const now = new Date();
+//     const diff = end - now;
+    
+//     if (diff < 0) return "Ended";
+    
+//     const hours = Math.floor(diff / (1000 * 60 * 60));
+//     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    
+//     return `${hours}h ${minutes}m left`;
+//   };
+
+//   return (
+//     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
+//       {/* Image Section */}
+//       <div className="relative h-48 overflow-hidden">
+//         <img
+//           src={imgSrc || '/default-auction.jpg'}
+//           alt={title}
+//           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+//         />
+//         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+//           <h3 className="text-white font-bold text-xl truncate">{title}</h3>
+//         </div>
+//       </div>
+
+//       {/* Details Section */}
+//       <div className="p-4">
+//         <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
+//           <FiClock className="flex-shrink-0" />
+//           <span className="font-medium">
+//             {format(new Date(startTime), 'MMM dd, yyyy HH:mm')} - {format(new Date(endTime), 'HH:mm')}
+//           </span>
+//         </div>
+
+//         <div className="space-y-3">
+//           <div className="flex justify-between items-center">
+//             <div className="flex items-center gap-2">
+//               <MdCurrencyRupee className="text-green-500" />
+//               <span className="font-semibold">Current Bid:</span>
+//             </div>
+//             <span className="font-bold text-lg">
+//               ₹{currentBid?.toLocaleString() || startingBid?.toLocaleString()}
+//             </span>
+//           </div>
+
+//           <div className="flex justify-between items-center">
+//             <div className="flex items-center gap-2">
+//               <FiUsers className="text-blue-500" />
+//               <span className="font-semibold">Bids:</span>
+//             </div>
+//             <span className="font-bold text-lg">{bidsCount}</span>
+//           </div>
+//         </div>
+
+//         {/* Time Left Badge */}
+//         <div className="mt-4 flex justify-between items-center bg-orange-50 p-2 rounded-lg">
+//           <span className="text-sm font-semibold text-orange-600">
+//             {getTimeLeft()}
+//           </span>
+//           <span className="px-2 py-1 bg-orange-500 text-white rounded-full text-xs font-bold">
+//             {new Date() > new Date(endTime) ? 'CLOSED' : 'LIVE'}
+//           </span>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Card;
