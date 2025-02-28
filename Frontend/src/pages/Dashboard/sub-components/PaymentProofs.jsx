@@ -99,12 +99,12 @@ export const Drawer = ({ setOpenDrawer, openDrawer }) => {
       >
         <div className="bg-white h-fit transition-all duration-300 w-full">
           <div className="w-full px-5 py-8 sm:max-w-[640px] sm:m-auto">
-            <h3 className="text-[#D6482B]  text-3xl font-semibold text-center mb-1">
+            {/* <h3 className="text-[#D6482B]  text-3xl font-semibold text-center mb-1">
               Update Payment Proof
             </h3>
             <p className="text-stone-600">
               You can update payment status and amount.
-            </p>
+            </p> */}
             <form className="flex flex-col gap-5 my-5">
               <div className="flex flex-col gap-3">
                 <label className="text-[16px] text-stone-600 ">User ID</label>
@@ -182,4 +182,3 @@ export const Drawer = ({ setOpenDrawer, openDrawer }) => {
     </>
   );
 };
-                                   
