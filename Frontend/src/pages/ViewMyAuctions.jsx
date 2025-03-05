@@ -68,8 +68,6 @@
 
 
 
-
-
 import CardTwo from "@/custom-components/CardTwo";
 import Spinner from "@/custom-components/Spinner";
 import { getMyAuctionItems } from "@/store/slices/auctionSlice";
@@ -99,13 +97,13 @@ const ViewMyAuctions = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-    }
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
   };
 
   const cardVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
@@ -164,6 +162,7 @@ const ViewMyAuctions = () => {
                     variants={cardVariants}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    className="cursor-pointer"
                   >
                     <CardTwo
                       title={auction.title}
@@ -174,6 +173,7 @@ const ViewMyAuctions = () => {
                       id={auction._id}
                       currentBid={auction.currentBid}
                       status={auction.status}
+                      onClick={(e) => e.stopPropagation()} // Prevent unwanted actions on hover
                     />
                   </motion.div>
                 ))}
