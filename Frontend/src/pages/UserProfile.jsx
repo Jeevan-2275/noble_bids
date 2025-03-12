@@ -231,7 +231,7 @@
 
 
 import Spinner from "@/custom-components/Spinner";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";

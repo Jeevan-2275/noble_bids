@@ -4,7 +4,7 @@ import {
     getAllUsers,
     getMonthlyRevenue,
   } from "@/store/slices/superAdminSlice";
-  import React, { useEffect } from "react";
+  import { useEffect } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import AuctionItemDelete from "./sub-components/AuctionItemDelete";
   import BiddersAuctioneersGraph from "./sub-components/BiddersAuctioneersGraph";

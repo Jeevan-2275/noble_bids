@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SideDrawer from "./layout/SideDrawer";
 import Home from "./pages/Home";
@@ -22,6 +22,7 @@ import ViewAuctionDetails from "./pages/ViewAuctionDetails";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Contact from "./pages/Contact";
 import UserProfile from "./pages/UserProfile";
+import Notify from "./pages/Notify";
 
 
 
@@ -54,6 +55,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path ="/me"  element={<UserProfile />} />
+        <Route path ="/notify"  element={<Notify />} />
 
       </Routes>
       <ToastContainer position="top-right" />
