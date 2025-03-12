@@ -9,13 +9,13 @@ const bidSlice = createSlice({
     loading: false,
   },
   reducers: {
-    bidRequest(state, action) {
+    bidRequest(state) {
       state.loading = true;
     },
-    bidSuccess(state, action) {
+    bidSuccess(state) {
       state.loading = false;
     },
-    bidFailed(state, action) {
+    bidFailed(state) {
       state.loading = false;
     },
   },
@@ -24,17 +24,25 @@ const bidSlice = createSlice({
 export const placeBid = (id, data) => async (dispatch) => {
   dispatch(bidSlice.actions.bidRequest());
   try {
-    const response = await axios.post(`https://noble-bids-1.onrender.com/api/v1/bid/place/${id}`, data, {
-      withCredentials: true,
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await axios.post(
+      `http://localhost:5000/api/v1/bid/place/${id}`,
+      data,
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+
     dispatch(bidSlice.actions.bidSuccess());
     toast.success(response.data.message);
-    dispatch(getAuctionDetail(id))
+    dispatch(getAuctionDetail(id));
   } catch (error) {
     dispatch(bidSlice.actions.bidFailed());
-    toast.error(error.response.data.message);
+
+    const errorMessage =
+      error.response?.data?.message || "Something went wrong!";
+    toast.error(errorMessage);
   }
 };
 
-export default bidSlice.reducer
+export default bidSlice.reducer;
