@@ -1,10 +1,7 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { IoMdNotifications } from "react-icons/io";
 import { Navigate } from "react-router-dom";
-import "./NotifyPage.css";
 
 const Notify = () => {
   const { allAuctions } = useSelector((state) => state.auction);
@@ -21,17 +18,6 @@ const Notify = () => {
 
   const userRole = isAuthenticated && user ? user.role : "non-bidder";
 
-  // Debug logs
-  console.log("Notify Page - isAuthenticated:", isAuthenticated);
-  console.log("Notify Page - user:", user);
-  console.log("Notify Page - userRole:", userRole);
-  console.log("Notify Page - notifyItems:", notifyItems);
-  console.log("Notify Page - allAuctions:", allAuctions);
-
-  if (userRole !== "Bidder") {
-    return <Navigate to="/" replace />;
-  }
-
   useEffect(() => {
     localStorage.setItem("notifyItems", JSON.stringify(notifyItems));
     localStorage.setItem("notifiedItems", JSON.stringify([...notifiedItems]));
@@ -39,7 +25,6 @@ const Notify = () => {
 
   useEffect(() => {
     if (!("Notification" in window)) {
-      console.log("This browser does not support notifications");
       setNotificationSupported(false);
       return;
     }
@@ -54,18 +39,17 @@ const Notify = () => {
   }, [allAuctions, notifyItems]);
 
   const checkAuctionMatches = () => {
-    if (!notificationSupported || Notification.permission !== "granted") {
-      console.log("Notifications not supported or permitted");
-      return;
-    }
+    if (!notificationSupported || Notification.permission !== "granted") return;
 
-    if (!allAuctions || !Array.isArray(allAuctions) || allAuctions.length === 0) {
-      console.log("No valid auctions to check");
+    if (
+      !allAuctions ||
+      !Array.isArray(allAuctions) ||
+      allAuctions.length === 0
+    ) {
       setLastCheckedAuctions([]);
       return;
     }
 
-    // Filter out invalid auctions and map to titles
     const currentAuctionTitles = allAuctions
       .filter((auction) => auction && typeof auction.title === "string")
       .map((auction) => auction.title.toLowerCase());
@@ -73,17 +57,21 @@ const Notify = () => {
       .filter((auction) => auction && typeof auction.title === "string")
       .map((auction) => auction.title.toLowerCase());
 
-    console.log("Current Auction Titles:", currentAuctionTitles);
-    console.log("Previous Auction Titles:", previousAuctionTitles);
-
     notifyItems.forEach((item) => {
       const itemLower = item.toLowerCase();
-      const isInCurrent = currentAuctionTitles.some((title) => title.includes(itemLower));
-      const wasInPrevious = previousAuctionTitles.some((title) => title.includes(itemLower));
+      const isInCurrent = currentAuctionTitles.some((title) =>
+        title.includes(itemLower)
+      );
+      const wasInPrevious = previousAuctionTitles.some((title) =>
+        title.includes(itemLower)
+      );
 
       if (isInCurrent && !wasInPrevious && !notifiedItems.has(item)) {
         const matchedAuction = allAuctions.find(
-          (auction) => auction && typeof auction.title === "string" && auction.title.toLowerCase().includes(itemLower)
+          (auction) =>
+            auction &&
+            typeof auction.title === "string" &&
+            auction.title.toLowerCase().includes(itemLower)
         );
         if (matchedAuction) {
           try {
@@ -93,7 +81,6 @@ const Notify = () => {
               tag: `auction-${item}`,
             });
             setNotifiedItems((prev) => new Set(prev).add(item));
-            console.log(`Notification sent for: ${item}`);
             setTimeout(() => notification.close(), 5000);
           } catch (error) {
             console.error("Error sending notification:", error);
@@ -127,54 +114,65 @@ const Notify = () => {
     });
   };
 
+  if (userRole !== "Bidder") {
+    return <Navigate to="/" replace />;
+  }
+
   return (
-    <div className="notify-page-container">
-      <h1 className="notify-page-title">
-        <IoMdNotifications className="inline-block mr-2 text-orange-600" />
-        Notification Preferences
-      </h1>
-      <p className="notify-page-subtitle">Get alerted when your items are up for auction!</p>
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-extrabold text-orange-600 flex items-center justify-center">
+            <IoMdNotifications className="h-10 w-10 text-orange-600 mr-2" />
+            Notification Preferences
+          </h1>
 
-      <div className="notify-section">
-        {!notificationSupported ? (
-          <p className="notify-warning">
-            Notifications are not supported in this browser.
+          <p className="mt-2 text-sm text-gray-600">
+            Get real-time alerts when your tracked items appear in auctions
           </p>
-        ) : Notification.permission !== "granted" ? (
-          <p className="notify-warning">
-            Please enable browser notifications for this feature to work.
-          </p>
-        ) : null}
+        </div>
 
-        <form onSubmit={handleAddNotifyItem} className="notify-form">
-          <input
-            type="text"
-            value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
-            placeholder="e.g., Laptop, Car"
-            className="notify-input"
-          />
-          <button type="submit" className="notify-button">
-            Add Item
-          </button>
-        </form>
+        <div className="bg-white shadow-sm rounded-lg p-6">
+          <form onSubmit={handleAddNotifyItem} className="flex gap-2 mb-6">
+            <input
+              type="text"
+              value={newItem}
+              onChange={(e) => setNewItem(e.target.value)}
+              placeholder="Enter item name (e.g., Laptop, Painting)"
+              className="flex-1 rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            >
+              Add Item
+            </button>
+          </form>
 
-        <div className="notify-items-list">
-          {notifyItems.length === 0 ? (
-            <p className="no-items">No items added yet.</p>
-          ) : (
-            notifyItems.map((item) => (
-              <div key={item} className="notify-item">
-                <span>{item}</span>
-                <button
-                  onClick={() => handleRemoveNotifyItem(item)}
-                  className="remove-button"
-                >
-                  Remove
-                </button>
+          <div className="space-y-2">
+            {notifyItems.length === 0 ? (
+              <div className="text-center py-4">
+                <p className="text-gray-500 text-sm">
+                  No items being tracked yet
+                </p>
               </div>
-            ))
-          )}
+            ) : (
+              notifyItems.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center justify-between bg-gray-50 rounded-md px-4 py-3"
+                >
+                  <span className="font-medium text-gray-700">{item}</span>
+                  <button
+                    onClick={() => handleRemoveNotifyItem(item)}
+                    className="text-orange-600 hover:text-orange-800 text-sm font-medium"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </div>
     </div>
