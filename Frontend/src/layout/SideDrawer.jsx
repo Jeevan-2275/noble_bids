@@ -1,18 +1,21 @@
-import { useState, useEffect } from "react";
-import { RiAuctionFill, RiInstagramFill } from "react-icons/ri";
-import { MdLeaderboard, MdDashboard } from "react-icons/md";
-import { SiGooglesearchconsole } from "react-icons/si";
-import { BsFillInfoSquareFill } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa";
-import { IoIosCreate } from "react-icons/io";
-import { FaUserCircle } from "react-icons/fa";
-import { FaFileInvoiceDollar } from "react-icons/fa6";
-import { FaEye } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "@/store/slices/userSlice";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+
+
+import { useState, useEffect } from "react"
+import { RiAuctionFill, RiInstagramFill } from "react-icons/ri"
+import { MdLeaderboard, MdDashboard } from "react-icons/md"
+import { SiGooglesearchconsole } from "react-icons/si"
+import { BsFillInfoSquareFill } from "react-icons/bs"
+import { FaFacebook } from "react-icons/fa"
+import { IoIosCreate } from "react-icons/io"
+import { FaUserCircle } from "react-icons/fa"
+import { FaFileInvoiceDollar } from "react-icons/fa6"
+import { FaEye } from "react-icons/fa"
+import { useDispatch, useSelector } from "react-redux"
+import { logout } from "@/store/slices/userSlice"
+import { Link } from "react-router-dom"
+import { Menu, X } from "lucide-react"
 import { IoMdNotifications } from "react-icons/io";
+
 
 const SideDrawer = () => {
   const [show, setShow] = useState(false);
@@ -95,12 +98,8 @@ const SideDrawer = () => {
 
             {isAuthenticated && user && user.role === "Bidder" && (
               <>
-                <NavLink
-                  to="/notify"
-                  icon={<IoMdNotifications />}
-                  label="Notify Me"
-                />
-              </>
+<NavLink to="/notify" icon={<IoMdNotifications />} label="Notify Me" />
+</>
             )}
 
             {isAuthenticated && user && user.role === "Auctioneer" && (
