@@ -1,5 +1,4 @@
 
-"use client"
 
 import { useState, useEffect } from "react"
 import { RiAuctionFill, RiInstagramFill } from "react-icons/ri"
@@ -15,31 +14,33 @@ import { useDispatch, useSelector } from "react-redux"
 import { logout } from "@/store/slices/userSlice"
 import { Link } from "react-router-dom"
 import { Menu, X } from "lucide-react"
+import { IoMdNotifications } from "react-icons/io";
+
 
 const SideDrawer = () => {
-  const [show, setShow] = useState(false)
-  const [activeLink, setActiveLink] = useState("")
+  const [show, setShow] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
-  const { isAuthenticated, user } = useSelector((state) => state.user)
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleLogout = () => {
-    dispatch(logout())
-  }
+    dispatch(logout());
+  };
 
   // Set active link based on current path
   useEffect(() => {
-    setActiveLink(window.location.pathname)
-  }, [])
+    setActiveLink(window.location.pathname);
+  }, []);
 
   const NavLink = ({ to, icon, label }) => {
-    const isActive = activeLink === to
+    const isActive = activeLink === to;
     return (
       <Link
         to={to}
         onClick={() => {
-          setActiveLink(to)
-          setShow(false)
+          setActiveLink(to);
+          setShow(false);
         }}
         className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
           isActive
@@ -50,8 +51,8 @@ const SideDrawer = () => {
         <span className="text-xl">{icon}</span>
         <span>{label}</span>
       </Link>
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -66,7 +67,10 @@ const SideDrawer = () => {
 
       {/* Overlay for mobile */}
       {show && (
-        <div className="fixed inset-0 bg-black/30 z-40 lg:hidden backdrop-blur-sm" onClick={() => setShow(false)} />
+        <div
+          className="fixed inset-0 bg-black/30 z-40 lg:hidden backdrop-blur-sm"
+          onClick={() => setShow(false)}
+        />
       )}
 
       {/* Sidebar */}
@@ -86,26 +90,44 @@ const SideDrawer = () => {
           {/* Main Navigation */}
           <div className="space-y-1.5 mb-6">
             <NavLink to="/auctions" icon={<RiAuctionFill />} label="Auctions" />
-            <NavLink to="/leaderboard" icon={<MdLeaderboard />} label="Leaderboard" />
-      
+            <NavLink
+              to="/leaderboard"
+              icon={<MdLeaderboard />}
+              label="Leaderboard"
+            />
 
             {isAuthenticated && user && user.role === "Bidder" && (
               <>
-                  <NavLink to="/notify"  label="Notify Me" />
-              </>
+<NavLink to="/notify" icon={<IoMdNotifications />} label="Notify Me" />
+</>
             )}
-
 
             {isAuthenticated && user && user.role === "Auctioneer" && (
               <>
-                <NavLink to="/submit-commission" icon={<FaFileInvoiceDollar />} label="Submit Commission" />
-                <NavLink to="/create-auction" icon={<IoIosCreate />} label="Create Auction" />
-                <NavLink to="/view-my-auctions" icon={<FaEye />} label="View My Auctions" />
+                <NavLink
+                  to="/submit-commission"
+                  icon={<FaFileInvoiceDollar />}
+                  label="Submit Commission"
+                />
+                <NavLink
+                  to="/create-auction"
+                  icon={<IoIosCreate />}
+                  label="Create Auction"
+                />
+                <NavLink
+                  to="/view-my-auctions"
+                  icon={<FaEye />}
+                  label="View My Auctions"
+                />
               </>
             )}
 
             {isAuthenticated && user && user.role === "Super Admin" && (
-              <NavLink to="/dashboard" icon={<MdDashboard />} label="Dashboard" />
+              <NavLink
+                to="/dashboard"
+                icon={<MdDashboard />}
+                label="Dashboard"
+              />
             )}
           </div>
 
@@ -140,9 +162,19 @@ const SideDrawer = () => {
 
           {/* Secondary Navigation */}
           <div className="space-y-1.5 mb-auto">
-            {isAuthenticated && <NavLink to="/me" icon={<FaUserCircle />} label="Profile" />}
-            <NavLink to="/how-it-works-info" icon={<SiGooglesearchconsole />} label="How it works" />
-            <NavLink to="/about" icon={<BsFillInfoSquareFill />} label="About Us" />
+            {isAuthenticated && (
+              <NavLink to="/me" icon={<FaUserCircle />} label="Profile" />
+            )}
+            <NavLink
+              to="/how-it-works-info"
+              icon={<SiGooglesearchconsole />}
+              label="How it works"
+            />
+            <NavLink
+              to="/about"
+              icon={<BsFillInfoSquareFill />}
+              label="About Us"
+            />
           </div>
 
           {/* Footer */}
@@ -174,7 +206,10 @@ const SideDrawer = () => {
             <p className="text-gray-500 text-sm">&copy; NobleBid, LLC.</p>
             <p className="text-gray-500 text-sm mt-1">
               Designed By{" "}
-              <Link to="/" className="font-medium hover:text-[#d6482b] transition-all duration-200">
+              <Link
+                to="/"
+                className="font-medium hover:text-[#d6482b] transition-all duration-200"
+              >
                 Jeevan Kadam
               </Link>
             </p>
@@ -182,10 +217,7 @@ const SideDrawer = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SideDrawer
-
-
-
+export default SideDrawer;
