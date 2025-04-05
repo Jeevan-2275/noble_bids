@@ -5,7 +5,6 @@
 // import UpcomingAuctions from "./home-sub-components/UpcomingAuctions";
 // import Leaderboard from "./home-sub-components/Leaderboard";
 
-
 // const Home = () => {
 //   const howItWorks = [
 //     { title: "Post Items", description: "Auctioneer posts items for bidding." },
@@ -21,14 +20,14 @@
 //   ];
 //   const { isAuthenticated } = useSelector((state) => state.user);
 
-//   return (    
+//   return (
 // <>
 // <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-center">
 // <div>
 //     <p className="text-[#DECCBE] font-bold text-xl mb-8">
 //             Transparency Leads to Your Victory
 //           </p>
-  
+
 //           <h1
 //             className={`text-[#111] text-2xl font-bold mb-2 min-[480px]:text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl`}
 //           >
@@ -84,49 +83,41 @@
 
 // export default Home;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React from 'react';
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiUsers, FiBarChart, FiAward, FiClock } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiUsers,
+  FiBarChart,
+  FiAward,
+  FiClock,
+} from "react-icons/fi";
 import FeaturedAuctions from "./home-sub-components/FeaturedAuctions";
 import UpcomingAuctions from "./home-sub-components/UpcomingAuctions";
 import Leaderboard from "./home-sub-components/Leaderboard";
 
 const Home = () => {
   const howItWorks = [
-    { 
-      title: "Post Items", 
+    {
+      title: "Post Items",
       description: "Auctioneer posts items for bidding.",
-      icon: <FiUsers className="w-6 h-6" />
+      icon: <FiUsers className="w-6 h-6" />,
     },
-    { 
-      title: "Place Bids", 
+    {
+      title: "Place Bids",
       description: "Bidders place bids on listed items.",
-      icon: <FiBarChart className="w-6 h-6" />
+      icon: <FiBarChart className="w-6 h-6" />,
     },
     {
       title: "Win Notification",
       description: "Highest bidder receives a winning email.",
-      icon: <FiAward className="w-6 h-6" />
+      icon: <FiAward className="w-6 h-6" />,
     },
     {
       title: "Payment & Fees",
       description: "Bidder pays; auctioneer pays 5% fee.",
-      icon: <FiClock className="w-6 h-6" />
+      icon: <FiClock className="w-6 h-6" />,
     },
   ];
 
@@ -177,15 +168,22 @@ const Home = () => {
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-{stats.map((stat, index) => (
-  <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all text-center">
-    <div className={`${stat.color} w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 shadow-md`}> 
-      <span className="text-2xl font-bold text-white">{stat.value}</span>
-    </div>
-    <p className="text-gray-600 font-medium text-lg">{stat.label}</p>
-  </div>
-))}
-</div>
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all text-center"
+            >
+              <div
+                className={`${stat.color} w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 shadow-md`}
+              >
+                <span className="text-2xl font-bold text-white">
+                  {stat.value}
+                </span>
+              </div>
+              <p className="text-gray-600 font-medium text-lg">{stat.label}</p>
+            </div>
+          ))}
+        </div>
         {/* How It Works Section */}
         <div className="space-y-8">
           <h3 className="text-3xl font-bold text-gray-800 text-center">
@@ -194,13 +192,11 @@ const Home = () => {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {howItWorks.map((element, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all group"
               >
-                <div className="mb-4 text-[#d6482b]">
-                  {element.icon}
-                </div>
+                <div className="mb-4 text-[#d6482b]">{element.icon}</div>
                 <h4 className="text-xl font-bold text-gray-800 mb-2">
                   {element.title}
                 </h4>
@@ -219,7 +215,8 @@ const Home = () => {
         <div className="bg-[#d6482b] rounded-2xl p-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Bidding?</h2>
           <p className="mb-8 max-w-xl mx-auto">
-            Join thousands of satisfied users participating in exciting auctions daily
+            Join thousands of satisfied users participating in exciting auctions
+            daily
           </p>
           <Link
             to={isAuthenticated ? "/auctions" : "/sign-up"}
@@ -235,5 +232,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
