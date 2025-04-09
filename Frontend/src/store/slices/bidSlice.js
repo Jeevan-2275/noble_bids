@@ -25,7 +25,7 @@ export const placeBid = (id, data) => async (dispatch) => {
   dispatch(bidSlice.actions.bidRequest());
   try {
     const response = await axios.post(
-      `https://noble-bids-1.onrender.com/api/v1/bid/place/${id}`,
+      `https://noble-bids-2.onrender.com/api/v1/bid/place/${id}`,
       data,
       {
         withCredentials: true,
