@@ -24,7 +24,7 @@ export const postCommissionProof = (data) => async (dispatch) => {
   dispatch(commissionSlice.actions.postCommissionProofRequest());
   try {
     const response = await axios.post(
-      "https://noble-bids-1.onrender.com/api/v1/commission/proof",
+      "https://noble-bids-2.onrender.com/api/v1/commission/proof",
       data,
       {
         withCredentials: true,
