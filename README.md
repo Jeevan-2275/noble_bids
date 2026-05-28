@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Waving Royal Gradient Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=7C3AED,db2777,d97706&height=180&section=header&text=NOBLEBID&fontSize=42&fontAlignY=45&animation=twinkling&desc=Dynamic%20Real-Time%20MERN%20Online%20Bidding%20%26%20Auction%20Platform&descSize=15&descAlignY=65" width="100%" alt="NobleBid Banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=7C3AED,db2777,d97706&height=180&section=header&text=NOBLEBID&fontSize=42&fontAlignY=45&animation=twinkling&desc=Dynamic%20Real-Time%20MERN%20Online%20Bidding%20and%20Auction%20Platform&descSize=15&descAlignY=65" width="100%" alt="NobleBid Banner" />
 
 <br/>
 
