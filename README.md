@@ -1,20 +1,20 @@
 <div align="center">
 
 <!-- Waving Royal Gradient Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=7C3AED,db2777,d97706&height=180&section=header&text=🔨%20NOBLEBID&fontSize=42&fontAlignY=45&animation=twinkling&desc=Dynamic%20Real-Time%20MERN%20Online%20Bidding%20%26%20Auction%20Platform&descSize=15&descAlignY=65" width="100%" alt="NobleBid Banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=7C3AED,db2777,d97706&height=180&section=header&text=NOBLEBID&fontSize=42&fontAlignY=45&animation=twinkling&desc=Dynamic%20Real-Time%20MERN%20Online%20Bidding%20%26%20Auction%20Platform&descSize=15&descAlignY=65" width="100%" alt="NobleBid Banner" />
 
 <br/>
 
 <!-- Interactive Typing Header -->
 <h1>
-  <img src="https://readme-typing-svg.demolab.com?font=Outfit&weight=600&size=28&duration=2500&pause=1000&color=db2777&center=true&vCenter=true&width=800&lines=🔨+Real-Time+Online+Bidding+Dashboard;🔐+Role-Based+JWT+Access+Controls;🖼️+Integrated+Cloudinary+Media+Galleries;📩+Automated+Email.js+Win+Alerts;📊+SuperAdmin+Analytics+%26+Dispute+Log" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Outfit&weight=600&size=28&duration=2500&pause=1000&color=db2777&center=true&vCenter=true&width=800&lines=Real-Time+Online+Bidding+Dashboard;Role-Based+JWT+Access+Controls;Integrated+Cloudinary+Media+Galleries;Automated+Email.js+Win+Alerts;SuperAdmin+Analytics+%26+Dispute+Log" alt="Typing SVG" />
 </h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/languages/top/Jeevan-2275/noble_bids?color=7C3AED&style=for-the-badge" alt="Top Language" />
-  <img src="https://img.shields.io/github/repo-size/Jeevan-2275/noble_bids?color=db2777&style=for-the-badge" alt="Repo Size" />
+  <img src="https://img.shields.io/badge/Language-JavaScript-7C3AED?logo=javascript&logoColor=white&style=for-the-badge" alt="Top Language" />
+  <img src="https://img.shields.io/badge/Stack-MERN_Stack-db2777?style=for-the-badge" alt="MERN Stack" />
+  <img src="https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb&logoColor=white&style=for-the-badge" alt="Database" />
   <img src="https://img.shields.io/badge/Postman-API_Docs-orange?logo=postman&logoColor=white&style=for-the-badge" alt="Postman" />
-  <img src="https://img.shields.io/badge/Stack-MERN-green?style=for-the-badge" alt="MERN" />
   <img src="https://img.shields.io/badge/License-MIT-d97706?style=for-the-badge" alt="License" />
 </p>
 
